@@ -73,14 +73,12 @@ plt.show()
 
 # Print detected musical events
 logger.info("\nDetected Musical Events:")
-logger.info("------------------------")
 logger.info(f"Average tempo: {np.asscalar(tempo):.1f} BPM" if np.isscalar(tempo) else f"Average tempo: {tempo[0]:.1f} BPM")
 logger.info(f"Number of detected beats: {len(beat_times)}")
 logger.info(f"Duration: {len(y)/sr:.1f} seconds")
 
 # Additional musical statistics
 logger.info("\nMusical Statistics:")
-logger.info("------------------")
 valid_f0 = f0[~np.isnan(f0)]
 if len(valid_f0) > 0:
     mean_midi = librosa.hz_to_midi(np.mean(valid_f0))
@@ -94,7 +92,6 @@ logger.info(f"Average dynamics: {mean_db:.1f} dB")
 # Additional analysis for musical context
 if len(valid_f0) > 0:
     logger.info("\nMusical Context:")
-    logger.info("---------------")
     # Calculate note distribution
     midi_notes = librosa.hz_to_midi(valid_f0)
     unique_notes, note_counts = np.unique(np.round(midi_notes), return_counts=True)
