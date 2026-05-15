@@ -2,7 +2,6 @@
 
 
 
-from sklearn.ensemble import IsolationForest
 import librosa
 import librosa.display
 import logging
